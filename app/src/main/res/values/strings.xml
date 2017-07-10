@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GST Rate Finder</string>
+    <string name="title_activity_home">GST Rate Finder</string>
+    <string name="title_activity_rate">Select Rate:</string>
 </resources>

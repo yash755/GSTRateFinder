@@ -61,6 +61,7 @@ No GST==Live poultry, such as fowls of the species Gallus domesticus (ducks, gee
 No GST==Other live animal such as mammals, birds, insects==Product Code: 106==Goods==No Image
 12%==Live horses==Product Code: 01012100,010129==Goods==http://www.hindustantimes.com/interactives/gst-rate-complete-list/img/01012100,010129.png
 No GST==Meat of bovine animals,fresh and chilled.==Product Code: 201==Goods==No Image
+No GST==Meat of bovine animals frozen other than frozen and put up in unit container ==Product Code: 201==Goods==No Image
 No GST==Meat of swine, fresh or chilled.==Product Code: 203==Goods==No Image
 No GST==Meat of sheep or goats, fresh or chilled.==Product Code: 204==Goods==No Image
 No GST==Fresh milk and pasteurised milk, including separated milk, milk and cream==Product Code: 401==Goods==No Image
@@ -145,7 +146,7 @@ No GST==Kumkum, Bindi, Sindur, Alta==Product Code: 3304==Goods==No Image
 5%==Agarbatti and other odoriferous preparations which operate by burning==Product Code: 3307==Goods==No Image
 12%==Tooth powder==Product Code: 3306 10 10==Goods==No Image
 18%==Hair oil==Product Code: 3305 9011, 3305 90 19==Goods==No Image
-18%==Dentrifices -Toothpaste==Product Code: 3306 10 20==Goods==No Image
+18%==Dentrifices - Toothpaste==Product Code: 3306 10 20==Goods==No Image
 28%==Perfumes and toilet waters.==Product Code: 3303==Goods==No Image
 28%==Beauty or make-up preparations and preparations for the care of the skin (other than medicaments), including sunscreen or sun tan preparations; manicure or pedicure preparations.==Product Code: 3304==Goods==No Image
 28%==Pre-shave, shaving or after-shave preparations, personal deodorants, bath preparations, depilatories and other perfumery.==Product Code: 3307==Goods==No Image
@@ -314,7 +315,7 @@ No GST==Semen (including frozen semen)==Product Code: 511==Goods==No Image
 5%==Skins and other parts of birds, with their feathers or down, feathers and parts of feathers (whether or not with trimmed edges) and down, not further worked than cleaned, disinfected or treated for preservation; powder and waste of feathers or parts of feathers==Product Code: 505==Goods==No Image
 5%==Bones and horn-cores, unworked, defatted, simply prepared (but not cut to shape),treated with acid or gelatinised; powder and waste of these products.==Product Code: 506==Goods==No Image
 5%==Ivory, tortoise-shell, whalebone and whalebone hair, horns, antlers, hooves, nails, claws and beaks, unworked or simply prepared but not cut to shape; powder and waste of these products.==Product Code: 507==Goods==No Image
-No GST==Bones and horn cores, bone grist, bone meal, etc.; hoof meal, horn meal, etc.==Product Code: 0506, 0507 90==Goods==No Image
+No GST==Bones and horn cores, bone grist, bone meal, etc.; hoof meal, horn meal, etc.==Product Code: 506, 507 90==Goods==No Image
 5%==Coral and similar materials, unworked or simply prepared but not otherwise worked; shells of molluscs, crustaceans orechinoderms and cuttle-bone, unworked or simply prepared but not cut to shape, powder and waste thereof.==Product Code: 508==Goods==No Image
 5%==Ambergris, castoreum, civet and musk; cantharides; bile, whether or not dried; glands and other animal products used in the preparation of pharmaceutical products, fresh, chilled, frozen or otherwise provisionally preserved.==Product Code: 510==Goods==No Image
 5%==Animal products not elsewhere specified or included; dead animals of Chapter 1 or 3, unfit for human consumption, other than semen including frozen semen.==Product Code: 511==Goods==No Image
@@ -332,7 +333,7 @@ No GST==Peel of citrus fruit or melons (including watermelons), fresh.==Product 
 12%==Brazil nuts, fresh or dried, whether or not shelled or peeled.==Product Code: 801==Goods==No Image
 12%==Other nuts, dried, whether or not shelled or peeled, such as Almonds, Hazelnuts or filberts (Coryius spp.), walnuts, Chestnuts (Castanea spp.), Pistachios, Macadamia nuts, Kola nuts (Cola spp.), other than areca nuts.==Product Code: 802==Goods==No Image
 12%==Dates, figs, pineapples, avocados, guavas, mangoes and mangosteens, dried.==Product Code: 804==Goods==No Image
-12%==Fruit, dried, other than that of product codes 0801 to 0806; mixtures of nuts or dried fruits of Chapter==Product Code: 813==Goods==No Image
+12%==Fruit, dried, other than that of product codes 801 806; mixtures of nuts or dried fruits of Chapter==Product Code: 813==Goods==No Image
 No GST==Coffee beans, not roasted.==Product Code: 901==Goods==No Image
 No GST==Unprocessed green leaves of tea==Product Code: 902==Goods==No Image
 No GST==Fresh ginger and fresh turmeric other than in processed form==Product Code: 9101110==Goods==http://www.hindustantimes.com/interactives/gst-rate-complete-list/img/9101110.png
@@ -345,7 +346,7 @@ No GST==Fresh ginger and fresh turmeric other than in processed form==Product Co
 5%==Wheat gluten, whether or not dried==Product Code: 1109 00 00==Goods==No Image
 12%==Starches; inulin==Product Code: 1108==Goods==No Image
 18%==Malt==Product Code: 1107==Goods==No Image
-No GST==Soya beans==Product Code: 1201==Goods==No Image
+No GST==Soya beans (All goods of seed quality)==Product Code: 1201==Goods==No Image
 No GST==Ground-nuts, not roasted or otherwise cooked==Product Code: 1202==Goods==No Image
 No GST==Linseed==Product Code: 1204==Goods==No Image
 No GST==Rape or colza seeds==Product Code: 1205==Goods==No Image
@@ -357,7 +358,7 @@ No GST==Plants and parts of plants (including seeds and fruits), of a kind used 
 No GST==Locust beans, seaweeds and other algae, sugar beet and sugar cane, fresh or chilled==Product Code: 1212==Goods==No Image
 No GST==Cereal straw and husks, unprepared, whether or not chopped, ground, pressed or in the form of pellets 1==Product Code: 1213==Goods==No Image
 No GST==Swedes, mangolds, fodder roots, hay, lucerne (alfalfa), clover, sainfoin, forage kale, lupines, vetches and similar forage products, whether or not in the form of pellets 1214].==Product Code: 1214==Goods==No Image
-5%==Soya beans==Product Code: 1201==Goods==No Image
+5%==Soya beans (All goods other than of seed quality)==Product Code: 1201==Goods==No Image
 5%==Ground-nuts, not roasted or otherwise cooked==Product Code: 1202==Goods==No Image
 5%==Copra==Product Code: 1203==Goods==No Image
 5%==Linseed==Product Code: 1204==Goods==No Image

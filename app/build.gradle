@@ -7,7 +7,7 @@ android {
         applicationId "com.gappydevelopers.gstratefinder"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
+        versionCode 6
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -30,4 +30,8 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support:support-compat:26.+'
+    compile 'com.daimajia.easing:library:2.0@aar'
+    compile 'com.daimajia.androidanimations:library:2.2@aar'
 }

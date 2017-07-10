@@ -62,7 +62,7 @@ public class DescriptionDataDisplay extends AppCompatActivity {
                 (this,android.R.layout.select_dialog_item,product_type);
 
         final AutoCompleteTextView actv= (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
-        actv.setThreshold(4);//will start working from first character
+        actv.setThreshold(3);//will start working from first character
         actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
 

@@ -1,9 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp">
+    xmlns:aandroid="http://schemas.android.com/apk/res-auto"
+    android:background="#aeaaaa"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@layout/shape"
+            android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -11,31 +23,33 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:layout_gravity="end"
+                    android:text="20%"
                     android:textSize="30sp"
-                    android:textStyle="bold"
+                    android:layout_gravity="end"
+                    android:textColor="#000000"
                     android:id="@+id/product_rate"
-                    android:hint="12%"/>
+                    android:layout_weight="0.1"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:textSize="20sp"
-                android:textAlignment="textEnd"
-                android:layout_gravity="bottom"
-                android:textStyle="bold"
-                android:id="@+id/product_type"
-                android:hint="Goods"/>
+
+                <TextView
+                    android:text="Goods"
+                    android:textSize="20sp"
+                    android:textAlignment="textEnd"
+                    android:textColor="#000000"
+                    android:id="@+id/product_type"
+                    android:layout_weight="0.1"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
 
             <LinearLayout
-                android:paddingTop="10dp"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
@@ -47,7 +61,7 @@
                     android:hint="Availabilty :"
                     android:id="@+id/image"
                     android:gravity="center"
-                    android:src="@drawable/img"
+                    android:src="@drawable/gst"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
@@ -55,25 +69,30 @@
 
                 <TextView
                     android:paddingLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:layout_gravity="center"
+                    android:text="Description"
                     android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:layout_gravity="center"
+                    android:textColor="#000000"
                     android:id="@+id/product_description"
-                    android:hint="Goods"/>
+                    android:layout_weight="0.1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
             <TextView
-                android:paddingTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
+                android:text="Product Code :2152"
                 android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_gravity="start"
+                android:textAlignment="center"
+                android:textColor="#000000"
                 android:textStyle="bold"
+                android:layout_weight="0.1"
                 android:id="@+id/product_code"
-                android:hint="Product Code: 7210"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
 </LinearLayout>

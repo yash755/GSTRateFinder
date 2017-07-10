@@ -6,11 +6,14 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -31,6 +34,9 @@ public class RateDataDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_data_display);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
 
         listView=(ListView)findViewById(R.id.gstlist);
 
@@ -60,46 +66,37 @@ public class RateDataDisplay extends AppCompatActivity {
 
         br.close();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (this,android.R.layout.select_dialog_item,tx);
+        Spinner dropdown = (Spinner)findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.custom_spinner_text, tx);
+        dropdown.setAdapter(adapter);
 
-        final AutoCompleteTextView actv= (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
-        actv.setThreshold(0);//will start working from first character
-        actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
-        actv.setTextColor(Color.BLACK);
-        new Handler().postDelayed(new Runnable() {
-
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void run() {
-                actv.showDropDown();
-            }
-        }, 500);
-
-        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View arg1, int pos,
-                                    long id) {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 Toast.makeText(RateDataDisplay.this," selected", Toast.LENGTH_LONG).show();
-                System.out.println(parent.getItemAtPosition(pos));
-                actv.setText("");
 
                 if (temporary.size() >0)
                     temporary.clear();
                 int i = 0;
                 while (i < gstModelArrayList.size()) {
-                    if (parent.getItemAtPosition(pos).equals(gstModelArrayList.get(i).getProduct_rate())) {
+                    if (parentView.getItemAtPosition(position).equals(gstModelArrayList.get(i).getProduct_rate())) {
                         temporary.add(gstModelArrayList.get(i));
                     }
                     i = i + 1;
                 }
                 gstListAdapter =new GSTListAdapter(temporary,context);
                 listView.setAdapter(gstListAdapter);
-
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
         });
 
     }
+
 
 }
 

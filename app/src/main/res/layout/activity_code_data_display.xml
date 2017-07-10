@@ -14,7 +14,8 @@
         android:layout_alignParentLeft="true"
         android:ems="10"
         android:inputType="number"
-        android:hint="Enter minimum 4 characters."
+        android:textColor="#000000"
+        android:hint="Enter minimum 2 characters.(Example : 31)"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
         <requestFocus />
@@ -23,6 +24,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#aeaaaa"
         android:id="@+id/gstlist" />
 
 </LinearLayout>
