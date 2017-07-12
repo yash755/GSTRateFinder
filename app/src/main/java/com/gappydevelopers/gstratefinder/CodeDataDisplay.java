@@ -52,7 +52,7 @@ public class CodeDataDisplay extends AppCompatActivity {
         while ((line = br.readLine()) != null) {
             String[] result = line.split("==");
 
-            gstModelArrayList.add(new GSTModel(result[3],result[1],result[2],result[0],result[4]));
+            gstModelArrayList.add(new GSTModel(result[3],result[1],result[2],result[0],"No Image"));
             product_type.add(result[2]);
         }
 

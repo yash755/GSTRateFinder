@@ -24,7 +24,7 @@
 
                 <TextView
                     android:text="20%"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:layout_gravity="end"
                     android:textColor="#000000"
                     android:id="@+id/product_rate"
@@ -70,7 +70,8 @@
                 <TextView
                     android:paddingLeft="10dp"
                     android:text="Description"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
+                    android:textAlignment="center"
                     android:paddingTop="10dp"
                     android:layout_gravity="center"
                     android:textColor="#000000"

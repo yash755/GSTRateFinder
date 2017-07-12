@@ -3,74 +3,51 @@ package com.gappydevelopers.gstratefinder;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-
-public class Home extends AppCompatActivity implements View.OnClickListener{
+public class HindiHome extends AppCompatActivity implements View.OnClickListener{
 
     CardView name,code,rate,all;
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
+        setContentView(R.layout.activity_hindi_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        userLocalStore = new UserLocalStore(this);
+
         name = (CardView)findViewById(R.id.name);
-        code = (CardView)findViewById(R.id.code);
         rate = (CardView)findViewById(R.id.rate);
         all = (CardView)findViewById(R.id.all);
 
         name.setOnClickListener(this);
-        code.setOnClickListener(this);
         rate.setOnClickListener(this);
         all.setOnClickListener(this);
 
-        YoYo.with(Techniques.BounceInUp)
-                .duration(3000)
-                .repeat(1)
-                .playOn(findViewById(R.id.name));
-
-        YoYo.with(Techniques.BounceInUp)
-                .duration(3000)
-                .repeat(1)
-                .playOn(findViewById(R.id.code));
-
-        YoYo.with(Techniques.BounceInUp)
-                .duration(3000)
-                .repeat(1)
-                .playOn(findViewById(R.id.rate));
-
-        YoYo.with(Techniques.BounceInUp)
-                .duration(3000)
-                .repeat(1)
-                .playOn(findViewById(R.id.all));
     }
 
     @Override
     public void onClick(View view) {
 
         if (view == name){
-            Intent i = new Intent(Home.this, DescriptionDataDisplay.class);
-            startActivity(i);
-        }else if (view == code){
-            Intent i = new Intent(Home.this, CodeDataDisplay.class);
+            Intent i = new Intent(HindiHome.this, DescriptionDataDisplay.class);
             startActivity(i);
         }else if (view == rate){
-            Intent i = new Intent(Home.this, RateDataDisplay.class);
+            Intent i = new Intent(HindiHome.this, RateDataDisplay.class);
             startActivity(i);
         }else if(view == all){
-            Intent i = new Intent(Home.this, All.class);
+            Intent i = new Intent(HindiHome.this, All.class);
             startActivity(i);
         }
     }
@@ -108,6 +85,22 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!userLocalStore.getuserloggedIn())
+            startActivity(new Intent(this,SelectLanguage.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 
 
 }

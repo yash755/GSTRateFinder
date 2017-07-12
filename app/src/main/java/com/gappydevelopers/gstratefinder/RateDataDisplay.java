@@ -25,15 +25,21 @@ import java.util.ArrayList;
 public class RateDataDisplay extends AppCompatActivity {
 
     String[] tx ={"No GST","0.25%","3%","5%","12%","18%","28%"};
+    String[] hx ={"कोई जीएसटी नहीं","5%","12%","18%","28%"};
     ArrayList<GSTModel> gstModelArrayList;
     ArrayList<GSTModel> temporary;
     ListView listView;
+    UserLocalStore userLocalStore;
     GSTListAdapter gstListAdapter;
+    Spinner dropdown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_data_display);
+
+        userLocalStore = new UserLocalStore(this);
+        dropdown = (Spinner)findViewById(R.id.spinner);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
@@ -51,24 +57,49 @@ public class RateDataDisplay extends AppCompatActivity {
 
     private void readFile1(final Context context) throws IOException {
         AssetManager am = context.getAssets();
-        InputStream is = am.open("data.txt");
 
-        //Construct BufferedReader from InputStreamReader
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        if(userLocalStore.getLanguage().equals("english")) {
+            InputStream is = am.open("data.txt");
 
-        String line = null;
-        while ((line = br.readLine()) != null) {
-            String[] result = line.split("==");
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-            gstModelArrayList.add(new GSTModel(result[3],result[1],result[2],result[0],result[4]));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String[] result = line.split("==");
 
+                gstModelArrayList.add(new GSTModel(result[3], result[1], result[2], result[0],"No Image"));
+
+            }
+
+            br.close();
+            Spinner dropdown = (Spinner)findViewById(R.id.spinner);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.custom_spinner_text, tx);
+            dropdown.setAdapter(adapter);
+
+        }else if(userLocalStore.getLanguage().equals("hindi")) {
+            InputStream is = am.open("hindi.txt");
+
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String[] result = line.split("=");
+                String product = result[1];
+                String[] products = product.split("-");
+                gstModelArrayList.add(new GSTModel("उत्पाद", products[0], "No Product", result[0], "No Image"));
+
+            }
+
+            br.close();
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.custom_spinner_text, hx);
+            dropdown.setAdapter(adapter);
         }
 
-        br.close();
 
-        Spinner dropdown = (Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.custom_spinner_text, tx);
-        dropdown.setAdapter(adapter);
+
 
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

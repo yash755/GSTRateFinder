@@ -23,12 +23,14 @@ public class All extends AppCompatActivity {
     ArrayList<GSTModel> gstModelArrayList;
     ListView listView;
     GSTListAdapter gstListAdapter;
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
 
+        userLocalStore = new UserLocalStore(this);
         listView=(ListView)findViewById(R.id.gstlist);
 
         gstModelArrayList = new ArrayList<>();
@@ -42,23 +44,48 @@ public class All extends AppCompatActivity {
 
     private void readFile1(final Context context) throws IOException {
         AssetManager am = context.getAssets();
-        InputStream is = am.open("data.txt");
-        final ArrayList<String> product_type = new ArrayList<>();
-        //Construct BufferedReader from InputStreamReader
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-        String line = null;
-        while ((line = br.readLine()) != null) {
-            String[] result = line.split("==");
+        if (userLocalStore.getLanguage().equals("english")) {
 
-            gstModelArrayList.add(new GSTModel(result[3],result[1],result[2],result[0],result[4]));
-            product_type.add(result[2]);
+            InputStream is = am.open("data.txt");
+            final ArrayList<String> product_type = new ArrayList<>();
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String[] result = line.split("==");
+
+                gstModelArrayList.add(new GSTModel(result[3], result[1], result[2], result[0],"No Image"));
+                product_type.add(result[2]);
+            }
+
+            br.close();
+
+            gstListAdapter = new GSTListAdapter(gstModelArrayList, context);
+            listView.setAdapter(gstListAdapter);
+        } else if (userLocalStore.getLanguage().equals("hindi")) {
+
+            InputStream is = am.open("hindi.txt");
+
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String[] result = line.split("=");
+                System.out.println(result[0] + result[1]);
+                String product = result[1];
+                String[] products = product.split("-");
+                gstModelArrayList.add(new GSTModel("उत्पाद", products[0], "No Product", result[0], "No Image"));
+
+            }
+
+            br.close();
+
+            gstListAdapter = new GSTListAdapter(gstModelArrayList, context);
+            listView.setAdapter(gstListAdapter);
         }
-
-        br.close();
-
-        gstListAdapter =new GSTListAdapter(gstModelArrayList,context);
-        listView.setAdapter(gstListAdapter);
 
     }
 }

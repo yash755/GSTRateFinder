@@ -67,10 +67,17 @@ public class GSTListAdapter extends ArrayAdapter<GSTModel> {
             result = convertView;
         }
         lastPosition = position;
+
         viewHolder.prodcut_type.setText(gstModel.getProduct_type());
         viewHolder.product_description.setText(gstModel.getProduct_name());
         viewHolder.product_rate.setText(gstModel.getProduct_rate());
-        viewHolder.product_code.setText(gstModel.getProduct_code());
+
+        if(gstModel.getProduct_code().equals("No Product")) {
+            viewHolder.product_code.setVisibility(View.INVISIBLE);
+        }else {
+            viewHolder.product_code.setText(gstModel.getProduct_code());
+        }
+
 
 /*        if (!gstModel.getProduct_image().equals("No Image")){*//*
             System.out.println("GSt"+ gstModel.getProduct_image());

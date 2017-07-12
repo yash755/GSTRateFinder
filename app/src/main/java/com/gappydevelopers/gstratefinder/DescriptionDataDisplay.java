@@ -24,12 +24,16 @@ public class DescriptionDataDisplay extends AppCompatActivity {
     ArrayList<GSTModel> temporary;
     ListView listView;
     GSTListAdapter gstListAdapter;
+    UserLocalStore userLocalStore;
+    ArrayAdapter<String> adapter;
+    final ArrayList<String> product_type = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_display);
 
+        userLocalStore = new UserLocalStore(this);
         listView=(ListView)findViewById(R.id.gstlist);
 
         gstModelArrayList = new ArrayList<>();
@@ -43,22 +47,44 @@ public class DescriptionDataDisplay extends AppCompatActivity {
 
     private void readFile1(final Context context) throws IOException {
         AssetManager am = context.getAssets();
-        InputStream is = am.open("data.txt");
-        final ArrayList<String> product_type = new ArrayList<>();
-        //Construct BufferedReader from InputStreamReader
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-        String line = null;
-        while ((line = br.readLine()) != null) {
-            String[] result = line.split("==");
+        if(userLocalStore.getLanguage().equals("english")) {
+            InputStream is = am.open("data.txt");
 
-            gstModelArrayList.add(new GSTModel(result[3],result[1],result[2],result[0],result[4]));
-            product_type.add(result[1]);
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String[] result = line.split("==");
+
+                gstModelArrayList.add(new GSTModel(result[3], result[1], result[2], result[0],"No Image"));
+                product_type.add(result[1]);
+            }
+
+            br.close();
+        }else if (userLocalStore.getLanguage().equals("hindi")) {
+
+            InputStream is = am.open("hindi.txt");
+
+            //Construct BufferedReader from InputStreamReader
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String[] result = line.split("=");
+                System.out.println(result[0] + result[1]);
+                String product = result[1];
+                String[] products = product.split("-");
+                gstModelArrayList.add(new GSTModel("उत्पाद", result[1], "No Product", result[0], "No Image"));
+                product_type.add(result[1]);
+
+            }
+
+            br.close();
         }
 
-        br.close();
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+        adapter = new ArrayAdapter<String>
                 (this,android.R.layout.select_dialog_item,product_type);
 
         final AutoCompleteTextView actv= (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
